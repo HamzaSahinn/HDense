@@ -26,10 +26,9 @@ val_class_metric.reset()
 
 
 epoch = 100
-model = HDense()
+model = HDense_LSTM()
 swa_model = torch.optim.swa_utils.AveragedModel(model)
-#model.load_state_dict(torch.load("../input/tnext-363-era-e45e53/TNeXt_363-ERA__epoch45"))
-
+model.load_state_dict(torch.load("weights\DenseLargeLSTM-SWA-ERA__10-1280_64.99", map_location="cpu"))
 
 if torch.cuda.is_available():
     model = model.cuda()
